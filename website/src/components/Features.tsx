@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { InboxIcon, SparklesIcon } from '@heroicons/react/24/outline'
+import { InboxIcon, SparklesIcon } from "@heroicons/react/24/outline";
 
 export default function Features() {
   return (
@@ -10,7 +10,10 @@ export default function Features() {
             <div>
               <div>
                 <span className="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
-                  <InboxIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                  <InboxIcon
+                    className="h-6 w-6 text-white"
+                    aria-hidden="true"
+                  />
                 </span>
               </div>
               <div className="mt-6">
@@ -18,9 +21,9 @@ export default function Features() {
                   Stay on top of customer support
                 </h2>
                 <p className="mt-4 text-lg text-gray-500">
-                  Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia
-                  porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus
-                  viverra dui tellus ornare pharetra.
+                  We take measures to mitigate risks and allow you to opt-out
+                  anytime. Some protocols may require you to wait until
+                  unstaking is complete to transfer or sell your assets.
                 </p>
                 <div className="mt-6">
                   <a
@@ -36,8 +39,9 @@ export default function Features() {
               <blockquote>
                 <div>
                   <p className="text-base text-gray-500">
-                    &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed diam. Sit orci risus aenean curabitur
-                    donec aliquet. Mi venenatis in euismod ut.&rdquo;
+                    &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed
+                    diam. Sit orci risus aenean curabitur donec aliquet. Mi
+                    venenatis in euismod ut.&rdquo;
                   </p>
                 </div>
                 <footer className="mt-3">
@@ -49,7 +53,9 @@ export default function Features() {
                         alt=""
                       />
                     </div>
-                    <div className="text-base font-medium text-gray-700">Marcia Hill, Digital Marketing Manager</div>
+                    <div className="text-base font-medium text-gray-700">
+                      Marcia Hill, Digital Marketing Manager
+                    </div>
                   </div>
                 </footer>
               </blockquote>
@@ -72,24 +78,28 @@ export default function Features() {
             <div>
               <div>
                 <span className="h-12 w-12 rounded-md flex items-center justify-center bg-indigo-600">
-                  <SparklesIcon className="h-6 w-6 text-white" aria-hidden="true" />
+                  <SparklesIcon
+                    className="h-6 w-6 text-white"
+                    aria-hidden="true"
+                  />
                 </span>
               </div>
               <div className="mt-6">
                 <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                  Better understand your customers
+                  Refer your friends and earn 6% extra
                 </h2>
                 <p className="mt-4 text-lg text-gray-500">
-                  Semper curabitur ullamcorper posuere nunc sed. Ornare iaculis bibendum malesuada faucibus lacinia
-                  porttitor. Pulvinar laoreet sagittis viverra duis. In venenatis sem arcu pretium pharetra at. Lectus
-                  viverra dui tellus ornare pharetra.
+                  Refer your friends to start staking with us and 6% APY on
+                  their invested amount will be added to your account. This offer is only
+                  valid for the first 1 year. The referral income will be sent to your
+                  account every month.
                 </p>
                 <div className="mt-6">
                   <a
                     href="#"
                     className="inline-flex px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700"
                   >
-                    Get started
+                    Refer Now
                   </a>
                 </div>
               </div>
@@ -107,5 +117,5 @@ export default function Features() {
         </div>
       </div>
     </div>
-  )
+  );
 }

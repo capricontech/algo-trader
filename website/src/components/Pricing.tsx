@@ -15,7 +15,7 @@ export default function Pricing() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl lg:text-5xl">
-              Simple no-tricks pricing
+              Start your Journey with us
             </h2>
             <p className="mt-4 text-xl text-gray-600">
               If you're not satisfied, contact us within the first 14 days and
@@ -93,8 +93,8 @@ export default function Pricing() {
                 </div>
                 <div className="mt-4 text-sm">
                   <a href="#" className="font-medium text-gray-900">
-                    Get a free sample{" "}
-                    <span className="font-normal text-gray-500">(20MB)</span>
+                    Schedule a Demo
+                    {/* <span className="font-normal text-gray-500">(20MB)</span> */}
                   </a>
                 </div>
               </div>

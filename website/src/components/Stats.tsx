@@ -19,16 +19,16 @@ export default function Stats() {
               <div className="max-w-4xl mx-auto">
                 <dl className="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
                   <div className="flex flex-col border-b border-gray-100 p-6 text-center sm:border-0 sm:border-r">
-                    <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Pepperoni</dt>
-                    <dd className="order-1 text-5xl font-extrabold text-indigo-600">100%</dd>
+                    <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Years of Operation</dt>
+                    <dd className="order-1 text-5xl font-extrabold text-indigo-600">5+</dd>
                   </div>
                   <div className="flex flex-col border-t border-b border-gray-100 p-6 text-center sm:border-0 sm:border-l sm:border-r">
-                    <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Delivery</dt>
-                    <dd className="order-1 text-5xl font-extrabold text-indigo-600">24/7</dd>
+                    <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Customers and Counting</dt>
+                    <dd className="order-1 text-5xl font-extrabold text-indigo-600">9000+</dd>
                   </div>
                   <div className="flex flex-col border-t border-gray-100 p-6 text-center sm:border-0 sm:border-l">
-                    <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">Calories</dt>
-                    <dd className="order-1 text-5xl font-extrabold text-indigo-600">100k</dd>
+                    <dt className="order-2 mt-2 text-lg leading-6 font-medium text-gray-500">ARR</dt>
+                    <dd className="order-1 text-5xl font-extrabold text-indigo-600">18%</dd>
                   </div>
                 </dl>
               </div>
