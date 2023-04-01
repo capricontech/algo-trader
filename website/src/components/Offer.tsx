@@ -13,10 +13,10 @@ export default function Offer() {
               Start spreading the word.
             </p>
           </div>
-          <div className="mt-12 -mb-10 sm:-mb-24 lg:-mb-80">
+          <div className="mt-12 -mb-10 sm:-mb-24 lg:-mb-40">
             <img
               className="rounded-lg shadow-xl object-cover ring-1 ring-black ring-opacity-5 w-full"
-              src="https://stimg.cardekho.com/images/carexteriorimages/930x620/Renault/KWID/7897/Renault-KWID-1.0-RXL/1665817428229/front-left-side-47.jpg"
+              src="https://www.motorbeam.com/wp-content/uploads/2022-Renault-Kwid-Price-1200x675.jpg"
               alt=""
             />
           </div>
