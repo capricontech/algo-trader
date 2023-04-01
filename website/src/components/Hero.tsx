@@ -9,7 +9,7 @@ export default function Hero() {
             <div>
               <img
                 className="h-11 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600"
+                src="https://triunits.com/triunits-short.jpg"
                 alt="Workflow"
               />
             </div>
@@ -27,11 +27,10 @@ export default function Hero() {
               </div>
               <div className="mt-6 sm:max-w-xl">
                 <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight sm:text-5xl">
-                  Server management for growing teams
+                  Earn up to 18.00% APY on your crypto.
                 </h1>
                 <p className="mt-6 text-xl text-gray-500">
-                  Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure
-                  qui lorem cupidatat commodo.
+                  Put your crypto to work and earn rewards.
                 </p>
               </div>
               <form action="#" className="mt-12 sm:max-w-lg sm:w-full sm:flex">
@@ -134,7 +133,7 @@ export default function Hero() {
             <div className="relative pl-4 -mr-40 sm:mx-auto sm:max-w-3xl sm:px-0 lg:max-w-none lg:h-full lg:pl-12">
               <img
                 className="w-full rounded-md shadow-xl ring-1 ring-black ring-opacity-5 lg:h-full lg:w-auto lg:max-w-none"
-                src="https://tailwindui.com/img/component-images/top-nav-with-multi-column-layout-screenshot.jpg"
+                src="https://www.analyticsinsight.net/wp-content/uploads/2022/02/Crypto-Staking-Platform-for-2022.jpg"
                 alt=""
               />
             </div>

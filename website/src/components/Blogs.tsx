@@ -1,15 +1,15 @@
 /* This example requires Tailwind CSS v2.0+ */
 const posts = [
     {
-      title: 'Boost your conversion rate',
-      href: '#',
+      title: 'What is staking?',
+      href: 'https://www.coinbase.com/learn/crypto-basics/what-is-staking',
       category: { name: 'Article', href: '#' },
       description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto accusantium praesentium eius, ut atque fuga culpa, similique sequi cum eos quis dolorum.',
-      date: 'Mar 16, 2020',
+        `The reason your crypto earns rewards while staked is because the blockchain puts it to work. Cryptocurrencies that allow staking use a “consensus mechanism” called Proof of Stake, which is the way they ensure that all transactions are verified and secured without a bank or payment processor in the middle.`,
+      date: 'Mar 16, 2022',
       datetime: '2020-03-16',
       imageUrl:
-        'https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        'https://images.ctfassets.net/q5ulk4bp65r7/3tzJIgkHEKOaubmZIUA5HY/35a85bd3cd3595af8bcf02725a020a0c/Learn_Illustration_What_is_Staking.png?w=768&fm=png',
       readingTime: '6 min',
       author: {
         name: 'Roel Aufderehar',
@@ -19,15 +19,16 @@ const posts = [
       },
     },
     {
-      title: 'How to use search engine optimization to drive sales',
-      href: '#',
-      category: { name: 'Video', href: '#' },
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit facilis asperiores porro quaerat doloribus, eveniet dolore. Adipisci tempora aut inventore optio animi., tempore temporibus quo laudantium.',
-      date: 'Mar 10, 2020',
+      title: 'What is mining?',
+      href: 'https://www.coinbase.com/learn/crypto-basics/what-is-mining',
+      category: { name: 'Article', href: '#' },
+      description: `Mining is the process that Bitcoin and several other cryptocurrencies use to generate new coins and 
+      verify new transactions. It involves vast, decentralized networks of computers around the world that verify and 
+      secure blockchains – the virtual ledgers that document cryptocurrency transactions.`,
+      date: 'Mar 10, 2022',
       datetime: '2020-03-10',
       imageUrl:
-        'https://images.unsplash.com/photo-1547586696-ea22b4d4235d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        'https://images.ctfassets.net/q5ulk4bp65r7/77UG0yFqYxqIlehK6snIEO/ae54bbb1ad0dcf55934959bc9ade74ab/Copy_of_Learn_Illustration_What_is_Mining.jpg?w=768&fm=png',
       readingTime: '4 min',
       author: {
         name: 'Brenna Goyette',
@@ -37,15 +38,14 @@ const posts = [
       },
     },
     {
-      title: 'Improve your customer experience',
-      href: '#',
+      title: 'How DeFi Protocols Generate Revenue and Why It’s Important',
+      href: 'https://academy.binance.com/en/articles/how-defi-protocols-generate-revenue-and-why-it-s-important',
       category: { name: 'Case Study', href: '#' },
-      description:
-        'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint harum rerum voluptatem quo recusandae magni placeat saepe molestiae, sed excepturi cumque corporis perferendis hic.',
-      date: 'Feb 12, 2020',
+      description: `Decentralized finance (DeFi) protocols offer a range of financial services that operate via smart contracts. For example, a DeFi protocol could offer decentralized exchange services, loans, and liquidity pools, all run via smart contracts on a blockchain.`,
+      date: 'Feb 12, 2022',
       datetime: '2020-02-12',
       imageUrl:
-        'https://images.unsplash.com/photo-1492724441997-5dc865305da7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80',
+        'https://public.bnbstatic.com/static/academy/uploads-original/bf34e232b1af4df9b33ee8a5b2bdb468.png',
       readingTime: '11 min',
       author: {
         name: 'Daniela Metz',

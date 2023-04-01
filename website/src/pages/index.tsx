@@ -6,6 +6,7 @@ import Features from "@/components/Features";
 import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
+import Offer from "@/components/Offer";
 import Pricing from "@/components/Pricing";
 import Stats from "@/components/Stats";
 
@@ -17,6 +18,7 @@ export default function HomePage() {
       <Clients />
       <Stats />
       <Features />
+      <Offer />
       <Pricing />
       <Blogs />
       <FAQ />
