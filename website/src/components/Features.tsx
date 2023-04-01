@@ -18,7 +18,7 @@ export default function Features() {
               </div>
               <div className="mt-6">
                 <h2 className="text-3xl font-extrabold tracking-tight text-gray-900">
-                  Stay on top of customer support
+                  Get Returns that are best in the industry
                 </h2>
                 <p className="mt-4 text-lg text-gray-500">
                   We take measures to mitigate risks and allow you to opt-out
@@ -39,9 +39,10 @@ export default function Features() {
               <blockquote>
                 <div>
                   <p className="text-base text-gray-500">
-                    &ldquo;Cras velit quis eros eget rhoncus lacus ultrices sed
-                    diam. Sit orci risus aenean curabitur donec aliquet. Mi
-                    venenatis in euismod ut.&rdquo;
+                    &ldquo;I joined the staking program and I am very happy with
+                    the returns. I am able to earn 18% APY on my invested amount
+                    and I can withdraw my funds anytime.
+                    &rdquo;
                   </p>
                 </div>
                 <footer className="mt-3">
@@ -54,7 +55,7 @@ export default function Features() {
                       />
                     </div>
                     <div className="text-base font-medium text-gray-700">
-                      Marcia Hill, Digital Marketing Manager
+                      Marcia Hill, Small Business Owner
                     </div>
                   </div>
                 </footer>
