@@ -56,7 +56,7 @@
             // Get avatar GLB URL
             if (json.eventName === 'v1.avatar.exported') {
                 console.log(`Avatar URL: ${json.data.url}`);
-                AvatarCreated.postMessage(JSON.stringify(json));
+                window.AvatarCreated.postMessage(JSON.stringify(json));
             }
 
             // Get user id
