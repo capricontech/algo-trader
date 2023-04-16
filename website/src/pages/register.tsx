@@ -1,5 +1,8 @@
+import { register } from "@/lib/api";
+import { isValidEmail } from "@/lib/helpers";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 
 export default function RegisterScreen() {
   const router = useRouter();
@@ -8,16 +11,30 @@ export default function RegisterScreen() {
     email: "",
     password: "",
     referral: "",
+    manager: "",
   });
 
   useEffect(() => {
     // Access the router's `query` object and set referral code
     const { referral } = router.query;
-    console.log(referral);
+
     if (referral) {
       setData({ ...data, referral: referral as string });
     }
   }, [router]);
+
+  const handleRegister = async (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
+    register(data)
+      .then((res) => {
+        router.push("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+        toast.error(err.message);
+      });
+  };
 
   return (
     <>
@@ -25,11 +42,13 @@ export default function RegisterScreen() {
         <div className="flex-1 flex flex-col justify-center py-12 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
           <div className="mx-auto w-full max-w-sm lg:w-96">
             <div>
-              <img
-                className="h-12 w-auto"
-                src="https://triunits.com/tri.png"
-                alt="Workflow"
-              />
+              <a href="/">
+                <img
+                  className="h-12 w-auto"
+                  src="https://triunits.com/tri.png"
+                  alt="Workflow"
+                />
+              </a>
               <h2 className="mt-6 text-3xl font-extrabold text-gray-900">
                 Register with Us
               </h2>
@@ -40,7 +59,7 @@ export default function RegisterScreen() {
 
             <div className="mt-8">
               <div className="mt-6">
-                <form action="#" method="POST" className="space-y-6">
+                <form action="" method="POST" className="space-y-6">
                   <div>
                     <label
                       htmlFor="name"
@@ -84,6 +103,15 @@ export default function RegisterScreen() {
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
                     </div>
+                    {isValidEmail(data.email) ? (
+                      <div className="text-green-500 text-xs mt-1">
+                        Valid Email
+                      </div>
+                    ) : (
+                      <div className="text-red-500 text-xs mt-1">
+                        Invalid Email
+                      </div>
+                    )}
                   </div>
 
                   <div className="space-y-1">
@@ -129,11 +157,30 @@ export default function RegisterScreen() {
                       />
                     </div>
                   </div>
-
+                  <div className="space-y-1">
+                    <label
+                      htmlFor="manager"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Manager Code (Optional)
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="manager"
+                        name="manager"
+                        type="text"
+                        value={data.manager}
+                        onChange={(e) =>
+                          setData({ ...data, manager: e.target.value })
+                        }
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
                   <div className="flex flex-row-reverse items-center justify-between">
                     <div className="text-sm">
                       <a
-                        href="#"
+                        href="/login"
                         className="font-medium text-indigo-600 hover:text-indigo-500"
                       >
                         Already have a account? Sign in
@@ -144,6 +191,7 @@ export default function RegisterScreen() {
                   <div>
                     <button
                       type="submit"
+                      onClick={handleRegister}
                       className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                       Register
@@ -157,7 +205,7 @@ export default function RegisterScreen() {
         <div className="hidden lg:block relative w-0 flex-1">
           <img
             className="absolute inset-0 h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1505904267569-f02eaeb45a4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1908&q=80"
+            src="/screenshot-1.png"
             alt=""
           />
         </div>

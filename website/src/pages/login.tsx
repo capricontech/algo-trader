@@ -10,11 +10,13 @@ export default function LoginScreen() {
     <>
       <div className="h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <img
-            className="mx-auto h-12 w-auto"
-            src="https://triunits.com/tri.png"
-            alt="Workflow"
-          />
+          <a href="/">
+            <img
+              className="mx-auto h-12 w-auto"
+              src="https://triunits.com/tri.png"
+              alt="Workflow"
+            />
+          </a>
           <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
             Sign in to your account
           </h2>
@@ -39,7 +41,7 @@ export default function LoginScreen() {
                     required
                     value={data.email}
                     onChange={(e) =>
-                        setData({ ...data, email: e.target.value })
+                      setData({ ...data, email: e.target.value })
                     }
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />
@@ -62,7 +64,7 @@ export default function LoginScreen() {
                     required
                     value={data.password}
                     onChange={(e) =>
-                        setData({ ...data, password: e.target.value })
+                      setData({ ...data, password: e.target.value })
                     }
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                   />

@@ -25,28 +25,28 @@ import { classNames } from "@/lib/helpers";
 
 const solutions = [
   {
-    name: "Analytics",
+    name: "Exchange",
     description:
       "Get a better understanding of where your traffic is coming from.",
-    href: "#",
+    href: "https://triunits.com",
     icon: ChartBarIcon,
   },
   {
-    name: "Engagement",
+    name: "Futures Trading",
     description: "Speak directly to your customers in a more meaningful way.",
-    href: "#",
+    href: "https://triunits.com/futures/BTC-USDT",
     icon: CursorArrowRaysIcon,
   },
   {
-    name: "Security",
+    name: "Spot Trading",
     description: "Your customers' data will be safe and secure.",
-    href: "#",
+    href: "https://triunits.com/spot/BTC-USDT",
     icon: ShieldCheckIcon,
   },
   {
-    name: "Integrations",
+    name: "Crypto Wallet",
     description: "Connect with third-party tools that you're already using.",
-    href: "#",
+    href: "https://triunits.com/wallet",
     icon: ViewColumnsIcon,
   },
 ];
@@ -379,7 +379,7 @@ export default function Navbar() {
                 <div>
                   <img
                     className="h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                    src="https://triunits.com/tri.png"
                     alt="Workflow"
                   />
                 </div>
@@ -466,14 +466,14 @@ export default function Navbar() {
               </div>
               <div className="mt-6">
                 <a
-                  href="#"
+                  href="/register"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                 >
                   Sign up
                 </a>
                 <p className="mt-6 text-center text-base font-medium text-gray-500">
                   Existing customer?{" "}
-                  <a href="#" className="text-indigo-600 hover:text-indigo-500">
+                  <a href="/login" className="text-indigo-600 hover:text-indigo-500">
                     Sign in
                   </a>
                 </p>
