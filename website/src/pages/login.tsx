@@ -1,8 +1,10 @@
 import { login } from "@/lib/api";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/router";
 
 export default function LoginScreen() {
+  const router = useRouter();
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -17,6 +19,7 @@ export default function LoginScreen() {
       .then((res) => {
         localStorage.setItem("token", res.jwt);
         localStorage.setItem("user", JSON.stringify(res.user));
+        router.push("/dashboard")
       })
       .catch((err) => {
         toast.error(err.message);
