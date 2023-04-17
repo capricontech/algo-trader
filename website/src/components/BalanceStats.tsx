@@ -1,40 +1,72 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { ArrowDownIcon, ArrowUpIcon } from "@heroicons/react/24/solid";
 import {
-  CursorArrowRippleIcon,
   MapIcon,
-  UsersIcon,
+  CurrencyRupeeIcon,
+  WalletIcon,
 } from "@heroicons/react/24/outline";
 import { classNames } from "@/lib/helpers";
-
-const stats = [
-  {
-    id: 1,
-    name: "Total Subscribers",
-    stat: "71,897",
-    icon: UsersIcon,
-    change: "122",
-    changeType: "increase",
-  },
-  {
-    id: 2,
-    name: "Avg. Open Rate",
-    stat: "58.16%",
-    icon: MapIcon,
-    change: "5.4%",
-    changeType: "increase",
-  },
-  {
-    id: 3,
-    name: "Avg. Click Rate",
-    stat: "24.57%",
-    icon: CursorArrowRippleIcon,
-    change: "3.2%",
-    changeType: "decrease",
-  },
-];
+import { useEffect, useState } from "react";
+import { getBalance } from "@/lib/api";
 
 export default function BalanceStats() {
+  const [stats, setStats] = useState([
+    {
+      id: 1,
+      name: "Current Balance",
+      stat: "71,897",
+      icon: CurrencyRupeeIcon,
+      change: "0",
+      changeType: "increase",
+      button: "Withdraw",
+    },
+    {
+      id: 2,
+      name: "Total Rewards Earned",
+      stat: "58.16%",
+      icon: MapIcon,
+      change: "0%",
+      changeType: "increase",
+      button: "View History",
+    },
+    {
+      id: 3,
+      name: "Total Money Invested",
+      stat: "24.57%",
+      icon: WalletIcon,
+      change: "0%",
+      changeType: "decrease",
+      button: "Invest More",
+    },
+  ]);
+
+  useEffect(() => {
+    getBalance()
+      .then((data) => {
+        setStats((prev) => {
+          let new_data = [...prev];
+          new_data.forEach((item) => {
+            switch (item.id) {
+              case 1:
+                item.stat = data.balance;
+                break;
+              case 2:
+                item.stat = data.pending_deposit;
+                break;
+              case 3:
+                item.stat = data.pending_withdrawal;
+                break;
+            }
+          });
+
+          return new_data;
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div>
       <h3 className="text-lg leading-6 font-medium text-gray-900">
@@ -91,8 +123,7 @@ export default function BalanceStats() {
                     href="#"
                     className="font-medium text-indigo-600 hover:text-indigo-500"
                   >
-                    {" "}
-                    View all<span className="sr-only"> {item.name} stats</span>
+                    {item.button}
                   </a>
                 </div>
               </div>

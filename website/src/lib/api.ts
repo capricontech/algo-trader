@@ -1,9 +1,19 @@
 import { API_URL } from "./config";
 
 export async function getHeaders(authenticated = false) {
-  return {
+  let headers: any = {
     "Content-Type": "application/json",
   };
+  if (authenticated) {
+    const token = localStorage.getItem("token");
+    if (token) {
+      headers = {
+        ...headers,
+        Authorization: `Bearer ${token}`,
+      };
+    }
+  }
+  return headers;
 }
 
 export async function register(data: any) {
@@ -36,4 +46,35 @@ export async function login(email: string, password: string) {
   if (!res.ok) throw Error(json.error.message);
 
   return json;
+}
+
+export async function getBalance() {
+  const res = await fetch(`${API_URL}/api/balance`, {
+    method: "GET",
+    headers: await getHeaders(true),
+  });
+  const json = await res.json();
+  if (!res.ok) throw Error(json.error.message);
+
+  return json;
+}
+
+export async function getProfile() {
+  return JSON.parse(localStorage.getItem("user") || "{}");
+}
+
+export async function getTree() {
+  const res = await fetch(`${API_URL}/api/auth/tree`, {
+    method: "GET",
+    headers: await getHeaders(true),
+  });
+  const json = await res.json();
+  if (!res.ok) throw Error(json.error.message);
+
+  return json;
+}
+
+export async function logout() {
+  localStorage.clear();
+  window.location.href = "/";
 }
