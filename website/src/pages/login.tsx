@@ -1,10 +1,30 @@
+import { login } from "@/lib/api";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 export default function LoginScreen() {
   const [data, setData] = useState({
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
+
+  const handleLogin = async (e: React.FormEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setLoading(true);
+
+    login(data.email, data.password)
+      .then((res) => {
+        localStorage.setItem("token", res.jwt);
+        localStorage.setItem("user", JSON.stringify(res.user));
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
 
   return (
     <>
@@ -98,12 +118,17 @@ export default function LoginScreen() {
               </div>
 
               <div>
-                <button
-                  type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                  Sign in
-                </button>
+                {loading ? (
+                  <div>Loading...</div>
+                ) : (
+                  <button
+                    type="submit"
+                    onClick={handleLogin}
+                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  >
+                    Sign in
+                  </button>
+                )}
               </div>
             </form>
 

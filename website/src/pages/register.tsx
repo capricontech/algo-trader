@@ -1,5 +1,5 @@
 import { register } from "@/lib/api";
-import { isValidEmail } from "@/lib/helpers";
+import { classNames, isValidEmail } from "@/lib/helpers";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -9,30 +9,37 @@ export default function RegisterScreen() {
   const [data, setData] = useState({
     name: "",
     email: "",
+    phone_number: "",
     password: "",
-    referral: "",
+    referrer: "",
     manager: "",
   });
+  const [referEditable, setReferEditable] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     // Access the router's `query` object and set referral code
     const { referral } = router.query;
 
     if (referral) {
-      setData({ ...data, referral: referral as string });
+      setData({ ...data, referrer: referral as string });
+      setReferEditable(false);
     }
   }, [router]);
 
   const handleRegister = async (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     register(data)
       .then((res) => {
         router.push("/login");
       })
       .catch((err) => {
-        console.log(err);
         toast.error(err.message);
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
@@ -77,6 +84,28 @@ export default function RegisterScreen() {
                         value={data.name}
                         onChange={(e) =>
                           setData({ ...data, name: e.target.value })
+                        }
+                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      htmlFor="phone_number"
+                      className="block text-sm font-medium text-gray-700"
+                    >
+                      Phone Number
+                    </label>
+                    <div className="mt-1">
+                      <input
+                        id="phone_number"
+                        name="phone_number"
+                        type="tel"
+                        autoComplete="phone_number"
+                        required
+                        value={data.phone_number}
+                        onChange={(e) =>
+                          setData({ ...data, phone_number: e.target.value })
                         }
                         className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                       />
@@ -149,11 +178,15 @@ export default function RegisterScreen() {
                         name="referral"
                         type="text"
                         required
-                        value={data.referral}
+                        value={data.referrer}
+                        disabled={!referEditable}
                         onChange={(e) =>
-                          setData({ ...data, referral: e.target.value })
+                          setData({ ...data, referrer: e.target.value })
                         }
-                        className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                        className={classNames(
+                          "appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm",
+                          referEditable ? "" : "bg-gray-200"
+                        )}
                       />
                     </div>
                   </div>
@@ -189,13 +222,17 @@ export default function RegisterScreen() {
                   </div>
 
                   <div>
-                    <button
-                      type="submit"
-                      onClick={handleRegister}
-                      className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                      Register
-                    </button>
+                    {loading ? (
+                      <div>Loading...</div>
+                    ) : (
+                      <button
+                        type="submit"
+                        onClick={handleRegister}
+                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                      >
+                        Register
+                      </button>
+                    )}
                   </div>
                 </form>
               </div>
