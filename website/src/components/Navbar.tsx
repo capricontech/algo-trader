@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import {
   BookmarkIcon,
@@ -18,10 +18,10 @@ import {
   ShieldCheckIcon,
   UserGroupIcon,
   ViewColumnsIcon,
-  XMarkIcon
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import { classNames } from "@/lib/helpers";
+import { classNames, getAuthToken } from "@/lib/helpers";
 
 const solutions = [
   {
@@ -90,6 +90,15 @@ const blogPosts = [
 ];
 
 export default function Navbar() {
+  const [authenticated, setAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const token = getAuthToken();
+    if (token) {
+      setAuthenticated(true);
+    }
+  }, []);
+
   return (
     <Popover className="relative bg-white">
       <div
@@ -342,20 +351,31 @@ export default function Navbar() {
                 )}
               </Popover>
             </Popover.Group>
-            <div className="flex items-center md:ml-12">
-              <a
-                href="/login"
-                className="text-base font-medium text-gray-500 hover:text-gray-900"
-              >
-                Sign in
-              </a>
-              <a
-                href="/register"
-                className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-              >
-                Sign up
-              </a>
-            </div>
+            {authenticated ? (
+              <div className="flex items-center md:ml-12">
+                <a
+                  href="/dashboard"
+                  className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                >
+                  Dashboard
+                </a>
+              </div>
+            ) : (
+              <div className="flex items-center md:ml-12">
+                <a
+                  href="/login"
+                  className="text-base font-medium text-gray-500 hover:text-gray-900"
+                >
+                  Sign in
+                </a>
+                <a
+                  href="/register"
+                  className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                >
+                  Sign up
+                </a>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -464,20 +484,34 @@ export default function Navbar() {
                   Contact Sales
                 </a>
               </div>
-              <div className="mt-6">
-                <a
-                  href="/register"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
-                >
-                  Sign up
-                </a>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
-                  Existing customer?{" "}
-                  <a href="/login" className="text-indigo-600 hover:text-indigo-500">
-                    Sign in
+              {authenticated ? (
+                <div className="mt-6">
+                  <a
+                    href="/dashboard"
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  >
+                    Dashboard
                   </a>
-                </p>
-              </div>
+                </div>
+              ) : (
+                <div className="mt-6">
+                  <a
+                    href="/register"
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  >
+                    Sign up
+                  </a>
+                  <p className="mt-6 text-center text-base font-medium text-gray-500">
+                    Existing customer?{" "}
+                    <a
+                      href="/login"
+                      className="text-indigo-600 hover:text-indigo-500"
+                    >
+                      Sign in
+                    </a>
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </Popover.Panel>

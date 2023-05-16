@@ -74,10 +74,9 @@ export default function RegisterScreen() {
                 <b>Note:</b> You need a referral code to register with us.
               </p>
             </div>
-
-            <div className="mt-8">
-              <div className="mt-6">
-                <form action="" method="POST" className="space-y-6">
+            <div className="mt-6">
+              <div>
+                <form action="" method="POST" className="space-y-4">
                   <div>
                     <label
                       htmlFor="name"
