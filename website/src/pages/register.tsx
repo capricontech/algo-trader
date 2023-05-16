@@ -19,10 +19,21 @@ export default function RegisterScreen() {
 
   useEffect(() => {
     // Access the router's `query` object and set referral code
-    const { referral } = router.query;
+    const { referral, email } = router.query;
+
+    if (email) {
+      setData({
+        ...data,
+        email: email as string,
+      });
+    }
 
     if (referral) {
-      setData({ ...data, referrer: referral as string });
+      setData({
+        ...data,
+        referrer: referral as string,
+        email: email as string,
+      });
       setReferEditable(false);
     }
   }, [router]);

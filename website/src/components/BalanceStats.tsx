@@ -14,7 +14,7 @@ export default function BalanceStats() {
     {
       id: 1,
       name: "Current Balance",
-      stat: "71,897",
+      stat: "0",
       icon: CurrencyRupeeIcon,
       change: "0",
       changeType: "increase",
@@ -23,7 +23,7 @@ export default function BalanceStats() {
     {
       id: 2,
       name: "Total Rewards Earned",
-      stat: "58.16%",
+      stat: "0",
       icon: MapIcon,
       change: "0%",
       changeType: "increase",
@@ -32,7 +32,7 @@ export default function BalanceStats() {
     {
       id: 3,
       name: "Total Money Invested",
-      stat: "24.57%",
+      stat: "0",
       icon: WalletIcon,
       change: "0%",
       changeType: "decrease",
@@ -89,7 +89,7 @@ export default function BalanceStats() {
             </dt>
             <dd className="ml-16 pb-6 flex items-baseline sm:pb-7">
               <p className="text-2xl font-semibold text-gray-900">
-                {item.stat}
+                {item.stat} $
               </p>
               <p
                 className={classNames(

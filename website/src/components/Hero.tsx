@@ -1,6 +1,10 @@
 import { ChevronRightIcon, StarIcon } from "@heroicons/react/24/solid";
+import { useState } from "react";
+import qs from "querystring";
 
 export default function Hero() {
+  const [email, setEmail] = useState("");
+
   return (
     <div className="bg-white pb-8 sm:pb-12 lg:pb-12">
       <div className="pt-8 overflow-hidden sm:pt-12 lg:relative lg:py-48">
@@ -43,14 +47,22 @@ export default function Hero() {
                     type="email"
                     className="block w-full border border-gray-300 rounded-md px-5 py-3 text-base text-gray-900 placeholder-gray-500 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                     placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
                 <div className="mt-4 sm:mt-0 sm:ml-3">
                   <button
                     type="submit"
                     className="block w-full rounded-md border border-transparent px-5 py-3 bg-indigo-600 text-base font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 sm:px-10"
+                    onClick={() => {
+                      window.open(
+                        `/register?${qs.stringify({ email })}`,
+                        "_blank"
+                      );
+                    }}
                   >
-                    Join Waitlist
+                    Register with Us
                   </button>
                 </div>
               </form>

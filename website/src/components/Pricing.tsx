@@ -84,7 +84,7 @@ export default function Pricing() {
                 <div className="mt-6">
                   <div className="rounded-md shadow">
                     <a
-                      href="#"
+                      href="/register"
                       className="flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-900"
                     >
                       Start Staking
