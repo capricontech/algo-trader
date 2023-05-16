@@ -16,15 +16,15 @@ import { logout } from "@/lib/api";
 
 const navigation = [
   { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  { name: "Earning", href: "#", icon: UsersIcon, current: false },
-  { name: "Team", href: "#", icon: FolderIcon, current: false },
-  { name: "Offer Center", href: "#", icon: CalendarIcon, current: false },
-  { name: "Documents", href: "#", icon: InboxIcon, current: false },
-  { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
+  // { name: "Earning", href: "#", icon: UsersIcon, current: false },
+  // { name: "Team", href: "#", icon: FolderIcon, current: false },
+  // { name: "Offer Center", href: "#", icon: CalendarIcon, current: false },
+  // { name: "Documents", href: "#", icon: InboxIcon, current: false },
+  // { name: "Reports", href: "#", icon: ChartBarIcon, current: false },
 ];
 const userNavigation = [
-  { name: "Your Profile", href: "#" },
-  { name: "Settings", href: "#" },
+  // { name: "Your Profile", href: "#" },
+  // { name: "Settings", href: "#" },
   { name: "Sign out", onClick: logout },
 ];
 
@@ -228,7 +228,6 @@ export default function DashboardLayout({ children }: any) {
                         <Menu.Item key={item.name}>
                           {({ active }) => (
                             <a
-                              href={item.href}
                               onClick={item.onClick}
                               className={classNames(
                                 active ? "bg-gray-100" : "",
