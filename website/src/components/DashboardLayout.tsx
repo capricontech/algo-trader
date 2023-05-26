@@ -11,12 +11,13 @@ import {
   UsersIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
-import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { MagnifyingGlassIcon, WalletIcon } from "@heroicons/react/24/solid";
 import { logout } from "@/lib/api";
+import { useRouter } from "next/router";
 
 const navigation = [
-  { name: "Dashboard", href: "#", icon: HomeIcon, current: true },
-  // { name: "Earning", href: "#", icon: UsersIcon, current: false },
+  { name: "Dashboard", href: "/dashboard", icon: HomeIcon, current: true },
+  { name: "Deposit", href: "/deposit", icon: WalletIcon, current: false },
   // { name: "Team", href: "#", icon: FolderIcon, current: false },
   // { name: "Offer Center", href: "#", icon: CalendarIcon, current: false },
   // { name: "Documents", href: "#", icon: InboxIcon, current: false },
@@ -34,6 +35,7 @@ function classNames(...classes: any) {
 
 export default function DashboardLayout({ children }: any) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const router = useRouter();
 
   return (
     <>
@@ -143,7 +145,7 @@ export default function DashboardLayout({ children }: any) {
                     key={item.name}
                     href={item.href}
                     className={classNames(
-                      item.current
+                      router.pathname.includes(item.href)
                         ? "bg-indigo-800 text-white"
                         : "text-black hover:bg-indigo-600",
                       "group flex items-center px-2 py-2 text-sm font-medium rounded-md"
