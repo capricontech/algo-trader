@@ -50,6 +50,25 @@ export default function TeamPage() {
             <p className="text-sm text-gray-500">{data.referrer.email}</p>
           </div>
         </div>
+        <div className="col-span-2">
+          <h1 className="text-2xl font-bold mb-4">Your Referrals</h1>
+          <table className="w-full">
+            <thead>
+              <tr>
+                <th className="text-left">Username</th>
+                <th className="text-left">Email</th>
+              </tr>
+            </thead>
+            <tbody>
+              {data.children.map((child: any) => (
+                <tr key={child.id}>
+                  <td className="text-left">{child.username}</td>
+                  <td className="text-left">{child.email}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </DashboardLayout>
   );
