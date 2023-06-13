@@ -23,8 +23,8 @@ export default function TeamPage() {
     <DashboardLayout>
       <h1 className="text-2xl font-bold mb-4">Team</h1>
       <p>Account Type: {data.access_type}</p>
-      <div className="grid grid-cols-2 gap-8 mt-5">
-        <div className="flex flex-row items-center shadow-lg rounded-lg p-4">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-5">
+        {data.manager && <div className="flex flex-row items-center shadow-lg rounded-lg p-4">
           <img
             src={`https://ui-avatars.com/api/?background=random&name=${data.manager.username}`}
             className="w-14 h-14 rounded-full"
@@ -36,8 +36,8 @@ export default function TeamPage() {
             </p>
             <p className="text-sm text-gray-500">{data.manager.email}</p>
           </div>
-        </div>
-        <div className="flex flex-row items-center shadow-lg rounded-lg p-4">
+        </div>}
+       { data.referrer && <div className="flex flex-row items-center shadow-lg rounded-lg p-4">
           <img
             src={`https://ui-avatars.com/api/?background=random&name=${data.referrer.username}`}
             className="w-14 h-14 rounded-full"
@@ -49,7 +49,7 @@ export default function TeamPage() {
             </p>
             <p className="text-sm text-gray-500">{data.referrer.email}</p>
           </div>
-        </div>
+        </div>}
         <div className="col-span-2">
           <h1 className="text-2xl font-bold mb-4">Your Referrals</h1>
           <table className="w-full">
