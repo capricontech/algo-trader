@@ -67,6 +67,15 @@ export default function BalanceStats() {
   useEffect(() => {
     getBalance()
       .then(async (data) => {
+        if (data.balance < 150) {
+          setStats((prev) => {
+            let new_data = [...prev];
+            // Remove the last element
+            new_data.pop();
+            
+            return new_data;
+          });
+        }
         const doge = await convertToDoge(data.balance);
         setStats((prev) => {
           let new_data = [...prev];
