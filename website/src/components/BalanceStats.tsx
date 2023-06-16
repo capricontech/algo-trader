@@ -22,7 +22,7 @@ export default function BalanceStats() {
     },
     {
       id: 2,
-      name: "Total Rewards Earned",
+      name: "Pending Deposit",
       stat: "0",
       icon: MapIcon,
       change: "0%",
@@ -31,30 +31,58 @@ export default function BalanceStats() {
     },
     {
       id: 3,
-      name: "Total Money Invested",
+      name: "Pending Withdrawal",
       stat: "0",
       icon: WalletIcon,
       change: "0%",
       changeType: "decrease",
       button: "Invest More",
     },
+    {
+      id: 4,
+      name: "Amount in Dogecoin",
+      stat: "0",
+      icon: WalletIcon,
+      changeType: "increase",
+    },
   ]);
+
+  // Function to convert USD balance to Dogecoin using CoinGecko API
+  const convertToDoge = (usd: number) => {
+    return new Promise((resolve, reject) => {
+      fetch(
+        `https://api.coingecko.com/api/v3/simple/price?ids=dogecoin&vs_currencies=usd&include_market_cap=false&include_24hr_vol=false&include_24hr_change=false&include_last_updated_at=false`
+      )
+        .then((res) => res.json())
+        .then((data) => {
+          resolve((usd / data.dogecoin.usd).toFixed(2));
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  };
+
 
   useEffect(() => {
     getBalance()
-      .then((data) => {
+      .then(async (data) => {
+        const doge = await convertToDoge(data.balance);
         setStats((prev) => {
           let new_data = [...prev];
           new_data.forEach((item) => {
             switch (item.id) {
               case 1:
-                item.stat = data.balance;
+                item.stat = `${data.balance} $`;
                 break;
               case 2:
-                item.stat = data.pending_deposit;
+                item.stat = `${data.pending_deposit} $`;
                 break;
               case 3:
-                item.stat = data.pending_withdrawal;
+                item.stat = `${data.pending_withdrawal} $`;
+                break;
+              case 4:
+                item.stat = `${doge} DOGE`;
                 break;
             }
           });
@@ -89,7 +117,7 @@ export default function BalanceStats() {
             </dt>
             <dd className="ml-16 pb-6 flex items-baseline sm:pb-7">
               <p className="text-2xl font-semibold text-gray-900">
-                {item.stat} $
+                {item.stat}
               </p>
               <p
                 className={classNames(
